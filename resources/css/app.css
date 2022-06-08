@@ -1,0 +1,63 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-size: 62.5%;
+    color: black;
+    background-color: #212529;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.login {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    min-height: 30px;
+    font-size: 1rem;
+    margin-left: 50px;
+    margin-bottom: 6px;
+}
+
+.logout {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    min-height: 30px;
+    font-size: 1rem;
+    margin-left: 6px;
+    margin-bottom: 6px;
+}
+
+.register {
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    width: 100%;
+    min-height: 30px;
+    font-size: 1rem;
+    margin-left: 90px;
+    margin-bottom: 6px;
+}
+
+.edit {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    width: 100%;
+    min-height: 30px;
+    font-size: 1rem;
+    margin-left: 730px;
+    margin-bottom: 6px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

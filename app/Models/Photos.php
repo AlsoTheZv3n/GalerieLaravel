@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Photos extends Model
 {
     use HasFactory;
+
+    protected $table = 'galeries';
+
+    protected $primaryKey = 'id';
+
+    public function galeries()
+    {
+        return $this->belongsTo(Galerie::class);
+    }
+    
 }

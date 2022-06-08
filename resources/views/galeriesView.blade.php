@@ -1,0 +1,1 @@
+// Detailansicht von einzelnem bild aus der galerie Detailoverview

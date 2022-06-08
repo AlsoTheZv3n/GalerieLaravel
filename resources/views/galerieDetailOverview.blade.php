@@ -1,0 +1,1 @@
+// Detail ansicht von ausgewählter galerie 

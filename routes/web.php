@@ -19,20 +19,16 @@ Route::get('/', function() {
 
 Route::get('/' , [GaleriesController::class, 'index']);
 Route::get('/galeriesOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');
-Route::get('/edit/{id}' , [GaleriesController::class, 'edit'])->middleware('auth', 'editauth');
-Route::put('/edit/{id}' , [GaleriesController::class, 'update'])->middleware('auth', 'editauth');
+Route::get('/galeriesOverviewEdit/{id}' , [GaleriesController::class, 'edit'])->middleware('auth', 'editauth');
+Route::put('/galeriesOverviewEdit/{id}' , [GaleriesController::class, 'update'])->middleware('auth', 'editauth');
 
 Route::get('/galeriesDetailOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');
-Route::get('/edit/{id}' , [GaleriesController::class, 'edit'])->middleware('auth', 'editauth');
-Route::put('/edit/{id}' , [GaleriesController::class, 'update'])->middleware('auth', 'editauth');
+Route::get('/galeriesDetailOverviewEdit/{id}' , [GaleriesController::class, 'edit'])->middleware('auth', 'editauth');
+Route::put('/galeriesDetailOverviewEdit/{id}' , [GaleriesController::class, 'update'])->middleware('auth', 'editauth');
 
 Route::get('/galeriesview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');
-Route::get('/edit/{id}' , [GaleriesController::class, 'edit'])->middleware('auth', 'editauth');
-Route::put('/edit/{id}' , [GaleriesController::class, 'update'])->middleware('auth', 'editauth');
-
-
-Route::get('/galerieEdit/{id}' , [GaleriesController::class, 'index']);
-Route::get('/galerie' , [GaleriesController::class, 'create']);
+Route::get('/galeriesViewEdit/{id}' , [GaleriesController::class, 'edit'])->middleware('auth', 'editauth');
+Route::put('/galeriesViewEdit/{id}' , [GaleriesController::class, 'update'])->middleware('auth', 'editauth');
 
 
 Route::get('/admin' , [AdminsController::class, 'index']);

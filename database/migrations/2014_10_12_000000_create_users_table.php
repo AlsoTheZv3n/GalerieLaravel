@@ -21,10 +21,6 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('galerie_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('galerie_id')->references('id')->on('galeries');
         });
     }
 

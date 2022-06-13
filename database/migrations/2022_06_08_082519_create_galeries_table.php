@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->String('galeriename');
             $table->timestamps();
+            $table->unsignedBigInteger('users_id');
+            $table->foreign('user_id')->references('id')->on('users');
         
         });
     }

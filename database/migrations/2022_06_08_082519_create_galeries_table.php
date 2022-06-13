@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('galeries', function (Blueprint $table) {
             $table->id();
             $table->String('galeriename');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
-            $table->unsignedBigInteger('users_id');
+
             $table->foreign('user_id')->references('id')->on('users');
-        
         });
     }
 

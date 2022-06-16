@@ -16,10 +16,12 @@ return new class extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->String('imagename');
+            $table->string('path');
             $table->timestamps();
             $table->unsignedBigInteger('photo_id');
             $table->unsignedBigInteger('galerie_id');
             $table->foreign('galerie_id')->references('id')->on('galeries');
+
         });
     }
 

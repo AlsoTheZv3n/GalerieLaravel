@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GaleriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,10 @@ Route::get('/', function() {
     return view('galerie');
 });
 
+Route::get('/galeries/create', function() {
+    return view('galeriesNew');
+});
+
 Route::get('/' , [GaleriesController::class, 'index']);
 Route::get('/galeriesOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');
 Route::get('/galeriesOverviewEdit/{id}' , [GaleriesController::class, 'edit'])->middleware('auth', 'editauth');
@@ -30,6 +35,7 @@ Route::get('/galeriesview/{id}' , [GaleriesController::class, 'view'])->middlewa
 Route::get('/galeriesViewEdit/{id}' , [GaleriesController::class, 'edit'])->middleware('auth', 'editauth');
 Route::put('/galeriesViewEdit/{id}' , [GaleriesController::class, 'update'])->middleware('auth', 'editauth');
 
+Route::post('/galeries/create' , [GaleriesController::class, 'create']);
 
 Route::get('/admin' , [AdminsController::class, 'index']);
 Route::get('/admins/{admin}' , [AdminsController::class, 'index']);

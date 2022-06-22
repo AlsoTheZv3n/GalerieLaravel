@@ -6,7 +6,7 @@
 
         <section class="jumbotron text-center">
             <div class="container col-md-7">
-            <h1 class="text text-light fs-2 fw-bold m-4">Galeries  </h1>
+            <h1 class="text text-light fs-2 fw-bold m-4"> Galeries  </h1>
                 <div class="row">
                     @foreach ($Galeries as $Galerie)
                         <div class="col-4">

@@ -17,6 +17,5 @@ class Galeries extends Model
     {
         return $this->hasMany(Galerie::class);
     }
-
     
 }

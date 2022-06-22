@@ -25,6 +25,41 @@ class GaleriesController extends Controller
             'galerie' => $galerie
         ]);
     }
+
+
+
+    public function create(Request $request) {
+        
+        $request->validate([
+        'name'=>'required',
+        'image' => 'required|mimes:jpeg,jpg,png|max:5048'
+        ]);
+        
+        
+        $newImageName = time() . '-' . $request->name . '.' . $request->image->extension();
+
+        $request->image->move(public_path('Bilder'), $newImageName);
+
+
+        $galerie = Galerie::create ([
+        'name'=> $request->input('name'),
+        'image_path' => $newImageName
+
+        ]);
+
+
+        $galerie = new galerie();
+
+        $name = $request->name;
+        
+        $galerie->galeriename = $name;
+        $galerie->user_id = auth()->user()->id;
+        
+        $galerie->save();
+
+        return redirect('/');
+    }
+
     /*
     public function update(Request $request, int $id) {
         $galerie = Galerie::find($id);
@@ -40,11 +75,6 @@ class GaleriesController extends Controller
         return redirect('/');
     }
 
-    */
-
-
-
-    //Alle Galerien 
     public function galeriesOverview(int $id){
 
         $galeries = Galerie::find($id);
@@ -57,7 +87,6 @@ class GaleriesController extends Controller
         
     }
 
-    //Bilder von einer Galerie 
     public function galeriesDetailOverview(int $id){
 
         $galeries = Galerie::find($id);
@@ -70,8 +99,6 @@ class GaleriesController extends Controller
         
     }
 
-
-    //Einzelnes Bilder von den Bildern 
     public function galeriesview(int $id){
 
         $galeries = Galerie::find($id);
@@ -83,6 +110,8 @@ class GaleriesController extends Controller
         ]);
         
     }
+
+    */
 
 
 }

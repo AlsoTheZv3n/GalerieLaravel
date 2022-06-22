@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->String('galeriename');
             $table->unsignedBigInteger('user_id');
+            $table->String('image_path');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

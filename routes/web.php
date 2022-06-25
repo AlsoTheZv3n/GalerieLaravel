@@ -3,13 +3,26 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GaleriesController;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-Route::get('/', [GaleriesController::class, 'view']);
+Route::get('/', function() {
+    return view('/galeriesOverview');
+});
 
 Route::get('/galeries/create', function() {
     return view('galeriesNew');
 });
 
+Route::get('/' , [GaleriesController::class, 'index']);
 Route::get('/galeriesOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');
 
 Route::get('/galeriesDetailOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');

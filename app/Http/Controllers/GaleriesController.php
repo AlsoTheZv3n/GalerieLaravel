@@ -40,13 +40,8 @@ class GaleriesController extends Controller
 
         $request->image->move(public_path('Bilder'), $newImageName);
 
-
-        $galerie = Galerie::create ([
-        'name'=> $request->input('name'),
-        'image_path' => $newImageName
-
-        ]);
-
+        $galerie->name = $request->name;
+        $galerie->image_path = $request->newImageName;
 
         $galerie = new galerie();
 

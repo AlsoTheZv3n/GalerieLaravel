@@ -13,6 +13,10 @@ class Galeries extends Model
 
     protected $primaryKey = 'id';
 
+    protected $fillable = [
+        'name'
+    ];
+
     public function photos()
     {
         return $this->hasMany(Galerie::class);

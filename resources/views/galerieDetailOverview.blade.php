@@ -3,7 +3,7 @@
 @section('content')
 
     <main role="main">
-
+@csrf
         <section class="jumbotron text-center">
             <div class="container col-md-7">
             <h1 class="text text-light fs-2 fw-bold m-4">Galeries von Autor  </h1>

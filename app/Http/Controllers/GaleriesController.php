@@ -40,12 +40,10 @@ class GaleriesController extends Controller
 
         $request->image->move(public_path('Bilder'), $newImageName);
 
-        $galerie->name = $request->name;
-        $galerie->image_path = $request->newImageName;
-
         $galerie = new galerie();
 
-        $name = $request->name;
+        $galerie->name = $request->name;
+        $galerie->image_path = $request->newImageName;
         
         $galerie->galeriename = $name;
         $galerie->user_id = auth()->user()->id;

@@ -9,11 +9,11 @@ class Photos extends Model
 {
     use HasFactory;
 
-    protected $table = 'galeries';
+    protected $table = 'photos';
 
     protected $primaryKey = 'id';
 
-    public function galeries()
+    public function galerie()
     {
         return $this->belongsTo(Galerie::class);
     }

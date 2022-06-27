@@ -34,11 +34,5 @@
     <button id="registerbtn" class="register btn"><a href="/register">Register</a></button>
     </div>
 
-    <!-- Create cards Button -->
-    <div class="create" id="create">
-    <button id="createbtn" class="create btn"><a href="/galeries/create">Create new Galerie</a></button>
-    </div>
-
-
 </body>
 </html>

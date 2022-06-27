@@ -9,7 +9,7 @@ class Galeries extends Model
 {
     use HasFactory;
 
-    protected $table = 'Photos';
+    protected $table = 'galeries';
 
     protected $primaryKey = 'id';
 
@@ -19,7 +19,7 @@ class Galeries extends Model
 
     public function photos()
     {
-        return $this->hasMany(Galerie::class);
+        return $this->hasMany(Photos::class);
     }
     
 }

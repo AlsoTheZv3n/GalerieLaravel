@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GaleriesController;
+use App\Http\Controllers\PhotosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,17 @@ Route::get('/', function() {
 Route::get('/galeries/create', function() {
     return view('galeriesNew');
 });
+
+Route::get('/photos/create/{galerie_id}', function() {
+    return view('photosCreate');
+});
+
+Route::post('/photos/create/{galerie_id}' , [PhotosController::class, 'create']);
+
+
+Route::get('photos/{galerieId}' , [PhotosController::class, 'index']);
+
+Route::get('/image/view/{photosId}' , [PhotosController::class, 'view']);
 
 Route::get('/' , [GaleriesController::class, 'index']);
 Route::get('/galeriesOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');

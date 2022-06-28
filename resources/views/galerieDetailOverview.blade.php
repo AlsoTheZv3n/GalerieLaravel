@@ -11,7 +11,7 @@
                     @foreach ($Photos as $Photo)
                         <div class="col-4">
                             <div class="card mb-4 box-shadow bg-dark text-light border-secondary">
-                                <img src="{{ asset('Bilder/' . $Photo->path) }}" class="card-img-top" alt="Galerie">
+                                <img src="{{ asset('Bilder/' . $Photo->path) }}" class="card-img-top" height="200px" alt="Galerie">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $Photo->imagename }}</h5>
                                     <div class="d-flex justify-content-between align-items-center">

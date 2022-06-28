@@ -21,5 +21,9 @@ class Galeries extends Model
     {
         return $this->hasMany(Photos::class);
     }
+
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
     
 }

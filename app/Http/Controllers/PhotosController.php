@@ -53,4 +53,23 @@ class PhotosController extends Controller
         return redirect('/');
     }
 
+
+    public function edit(int $id) {
+        $photo = Photos::find($id);
+
+        return view('photosEdit', [
+            'photo' => $photo
+        ]);
+    }
+
+    public function update(Request $request, int $id) {
+        $photo = Photos::find($id);
+
+        $photo->imagename = $request->name;
+        $photo->save();
+        return redirect('/');
+
+
+    }
+
 }

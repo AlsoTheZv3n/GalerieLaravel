@@ -21,10 +21,22 @@ class GaleriesController extends Controller
     public function edit(int $id) {
         $galerie = Galerie::find($id);
 
-        return view('galeriesEdit', [
+        return view('galerieEdit', [
             'galerie' => $galerie
         ]);
     }
+
+    public function update(Request $request, int $id) {
+        $galerie = Galerie::find($id);
+
+        $galerie->galeriename = $request->name;
+        $galerie->save();
+        return redirect('/');
+
+
+    }
+
+
 
 
 
@@ -53,58 +65,6 @@ class GaleriesController extends Controller
         return redirect('/');
     }
 
-    /*
-    public function update(Request $request, int $id) {
-        $galerie = Galerie::find($id);
-
-        $name = $request->name;
-
-
-        $drug->name = $name;
-    
-
-        $galerie->save();
-
-        return redirect('/');
-    }
-
-    public function galeriesOverview(int $id){
-
-        $galeries = Galerie::find($id);
-        $photos = Photo::where('photo_id', $id)->get();
-
-        return view ('galeriesOverview', [
-            'galeries' => $galeries,
-            'photos' => $photos,
-        ]);
-        
-    }
-
-    public function galeriesDetailOverview(int $id){
-
-        $galeries = Galerie::find($id);
-        $photos = Photo::where('photo_id', $id)->get();
-
-        return view ('galeriesDetailOverview', [
-            'galeries' => $galeries,
-            'photos' => $photos,
-        ]);
-        
-    }
-
-    public function galeriesview(int $id){
-
-        $galeries = Galerie::find($id);
-        $photos = Photo::where('photo_id', $id)->get();
-
-        return view ('galeriesview', [
-            'galeries' => $galeries,
-            'photos' => $photos,
-        ]);
-        
-    }
-
-    */
 
 
 }

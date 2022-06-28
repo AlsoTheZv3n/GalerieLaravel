@@ -29,6 +29,17 @@ Route::get('/photos/create/{galerie_id}', function() {
 
 Route::post('/photos/create/{galerie_id}' , [PhotosController::class, 'create']);
 
+Route::get('/galeries/edit/{galerieId}', [GaleriesController::class, 'edit']);
+
+
+Route::put('/galeries/edit/{galerieId}', [GaleriesController::class, 'update']);
+
+
+Route::get('/image/edit/{photoId}', [PhotosController::class, 'edit']);
+
+
+Route::put('/image/edit/{photoId}', [PhotosController::class, 'update']);
+
 
 Route::get('photos/{galerieId}' , [PhotosController::class, 'index']);
 

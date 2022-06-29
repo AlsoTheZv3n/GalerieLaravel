@@ -11,4 +11,13 @@ class UsersController extends Controller
         return view('posts.edit')->with('post', $post);
 
     }
+
+    public function destroy($id){
+
+        $res=User::find($id)->delete();
+
+        return view('/');
+    }
+
+
 }

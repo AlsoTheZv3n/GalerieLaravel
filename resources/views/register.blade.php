@@ -33,9 +33,10 @@
                 <div class="row mb-3">
                     <label for="exampleFormControlInput1" class="col-sm-2 col-form-label fs-6 text-light" style="colour: hsl(179, 72%, 50%);">Role</label>
                     <div class="col-sm-10">
-                    <select class="form-select opacity-50" name="role" id="role">
+                    <select class="form-select opacity-50" name="role_id" id="role_id">
                         <option selected>Choose Role ...</option>
-                        <option value="benutzer">Benutzer</option>
+                        <option value="1">Admin</option>
+                        <option value="2">Benutzer</option>
                     </select>
                     </div>
                 </div>

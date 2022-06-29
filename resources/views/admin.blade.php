@@ -17,12 +17,16 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach( $User as $Users )
+                @foreach( $Users as $User )
                 <tr>
-                    <td>{{ $Users->role }}</td>
-                    <td>{{ $Users->username }}</td>
-                    <td><a href="Photo" class="btn btn-success">Edit</a>
-                    <td><a href="Photo" class="btn btn-danger">Delete</a>   
+                    <td>{{ $User->role_id }}</td>
+                    <td>{{ $User->username }}</td>
+                    <td><a href="/admin/edit/{{ $User->id }}" class="btn btn-success">Edit</a>
+                        
+                      <form method="Post" action="/delete_user/{{ $user->id}}">
+                            @method('delete')
+                            @csrf
+                             <button class="btn btn-danger"> Delete </button>   </td>
                 </tr>
                 @endforeach
             </tbody>

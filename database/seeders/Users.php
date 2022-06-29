@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class Users extends Seeder
 {
@@ -20,14 +21,16 @@ class Users extends Seeder
                 'username' => 'HansPet',
                 'lastname' => 'Hans',
                 'firstname' => 'Peter',
-                'role' => 'Benutzer',
+                'password' => bcrypt(12345678),
+                'role_id' => '2',
             ],
 
             [
                 'username' => 'Sweid',
                 'lastname' => 'Weidenmann',
                 'firstname' => 'Sven',
-                'role' => 'Admin',
+                'password' => bcrypt(12345678),
+                'role_id' => '1',
             ],
             
         ]);

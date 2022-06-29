@@ -18,9 +18,13 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('username')->unique();
+            $table->unsignedBigInteger('role_id');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+    
+
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('CASCADE')->onUpdate('CASCADE');
         });
     }
 

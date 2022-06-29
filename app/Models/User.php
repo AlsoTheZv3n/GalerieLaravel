@@ -21,7 +21,7 @@ class User extends Authenticatable
         'firstname',
         'lastname',
         'username',
-        'role',
+        'role_id',
         'password',
     ];
 
@@ -46,6 +46,10 @@ class User extends Authenticatable
 
     public function galeries() {
         return $this->hasMany(Galerie::class);
+    }
+
+    public function Roles() {
+        return $this->belongsTo(Role::class, 'role_id');
     }
 
 

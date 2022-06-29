@@ -3,17 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GaleriesController;
 use App\Http\Controllers\PhotosController;
+use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\UsersController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function() {
     return view('/galeriesOverview');
@@ -59,6 +51,14 @@ Route::get('/admin' , [AdminsController::class, 'index']);
 Route::get('/admins/{admin}' , [AdminsController::class, 'index']);
 Route::get('/admins/{admin}/edit' , [AdminsController::class, 'edit']);
 Route::get('/admins/{admin}/destroy' , [AdminsController::class, 'destroy']);
+
+
+Route::get('/admin/edit/{adminId}', [AdminsController::class, 'edit']);
+
+Route::put('/admin/edit/{adminId}', [AdminsController::class, 'update']);
+
+Route::delete('/admin/edit/{adminId}', [AdminsController::class, 'destroy']);
+
 
 Route::get('/users/{id}', [UsersController::class, 'show']);
 

@@ -14,8 +14,11 @@
 
     @yield('content')
 
+    <div class="container">
+        <div class="row align-items-start">
+
     <!-- Logout Button -->
-    <div class="logout" id="logout">
+    <div class="logout col" id="logout">
     <button id="logoutnbtn" class="logout btn btn-dark "><a href="#" onclick="document.querySelector('#logoutForm').submit()">Logout</a></button>
     </div>
 
@@ -25,13 +28,16 @@
     </form>
 
     <!-- Login Button -->
-    <div class="login" id="login">
+    <div class="login col" id="login">
     <button id="loginbtn" class="login btn"><a href="/login">Login</a></button>
     </div>
 
     <!-- Login Button -->
-    <div class="register" id="register">
+    <div class="register col" id="register">
     <button id="registerbtn" class="register btn"><a href="/register">Register</a></button>
+    </div>
+
+    </div>
     </div>
 
 </body>

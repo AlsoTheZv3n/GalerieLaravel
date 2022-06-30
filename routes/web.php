@@ -57,7 +57,7 @@ Route::get('/admin/edit/{adminId}', [AdminsController::class, 'edit']);
 
 Route::put('/admin/edit/{adminId}', [AdminsController::class, 'update']);
 
-Route::delete('/admin/edit/{adminId}', [AdminsController::class, 'destroy']);
+Route::delete('/delete/user/{userId}', [UsersController::class, 'destroy']);
 
 
 Route::get('/users/{id}', [UsersController::class, 'show']);

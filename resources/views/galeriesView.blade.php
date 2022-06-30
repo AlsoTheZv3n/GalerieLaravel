@@ -1,13 +1,11 @@
-
 @extends('layout')
 
 @section('content')
-
     <main role="main">
 
         <section class="jumbotron text-center">
             <div class="container col-md-7">
-            <h1 class="text text-light fs-2 fw-bold m-4">Photos</h1>
+                <h1 class="text text-light fs-2 fw-bold m-4">Photos</h1>
                 <div class="row">
                     <div class="col-12">
                         <div class="card mb-4 box-shadow bg-dark text-light border-secondary">
@@ -18,5 +16,4 @@
             </div>
         </section>
     </main>
-
 @endsection

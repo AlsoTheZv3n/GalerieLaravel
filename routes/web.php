@@ -13,54 +13,57 @@ Route::get('/', function() {
 
 Route::get('/galeries/create', function() {
     return view('galeriesNew');
-});
+})->middleware('auth');
 
 Route::get('/photos/create/{galerie_id}', function() {
-    return view('photosCreate');
+    return view('photosCreate')->middleware('auth');
 });
 
-Route::post('/photos/create/{galerie_id}' , [PhotosController::class, 'create']);
+Route::post('/photos/create/{galerie_id}' , [PhotosController::class, 'create'])->middleware('auth');
 
-Route::get('/galeries/edit/{galerieId}', [GaleriesController::class, 'edit']);
-
-
-Route::put('/galeries/edit/{galerieId}', [GaleriesController::class, 'update']);
+Route::get('/galeries/edit/{galerieId}', [GaleriesController::class, 'edit'])->middleware('auth');
 
 
-Route::get('/image/edit/{photoId}', [PhotosController::class, 'edit']);
+Route::put('/galeries/edit/{galerieId}', [GaleriesController::class, 'update'])->middleware('auth');
 
 
-Route::put('/image/edit/{photoId}', [PhotosController::class, 'update']);
+Route::get('/image/edit/{photoId}', [PhotosController::class, 'edit'])->middleware('auth');
 
 
-Route::get('photos/{galerieId}' , [PhotosController::class, 'index']);
+Route::put('/image/edit/{photoId}', [PhotosController::class, 'update'])->middleware('auth');
 
-Route::get('/image/view/{photosId}' , [PhotosController::class, 'view']);
 
-Route::get('/' , [GaleriesController::class, 'index']);
-Route::get('/galeriesOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');
+Route::get('photos/{galerieId}' , [PhotosController::class, 'index'])->middleware('auth');
 
-Route::get('/galeriesDetailOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');
+Route::get('/image/view/{photosId}' , [PhotosController::class, 'view'])->middleware('auth');
 
-Route::get('/galeriesview/{id}' , [GaleriesController::class, 'view'])->middleware('auth', 'readauth');
+Route::get('/' , [GaleriesController::class, 'index'])->middleware(['auth']);
+
+Route::get('/galeriesOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth');
+
+Route::get('/galeriesDetailOverview/{id}' , [GaleriesController::class, 'view'])->middleware('auth');
+
+Route::get('/galeriesview/{id}' , [GaleriesController::class, 'view'])->middleware('auth');
 
 // create galleries (file upload)
-Route::post('/galeries/create' , [GaleriesController::class, 'create']);
+Route::post('/galeries/create' , [GaleriesController::class, 'create'])->middleware('auth');
 
-Route::get('/admin' , [AdminsController::class, 'index']);
-Route::get('/admins/{admin}' , [AdminsController::class, 'index']);
-Route::get('/admins/{admin}/edit' , [AdminsController::class, 'edit']);
-Route::get('/admins/{admin}/destroy' , [AdminsController::class, 'destroy']);
-
-
-Route::get('/admin/edit/{adminId}', [AdminsController::class, 'edit']);
-
-Route::put('/admin/edit/{adminId}', [AdminsController::class, 'update']);
-
-Route::delete('/delete/user/{userId}', [UsersController::class, 'destroy']);
+Route::get('/admin' , [AdminsController::class, 'index'])->middleware(['auth', 'adminauth']);
+Route::get('/admins/{admin}' , [AdminsController::class, 'index'])->middleware('auth');
+Route::get('/admins/{admin}/edit' , [AdminsController::class, 'edit'])->middleware('auth');
+Route::get('/admins/{admin}/destroy' , [AdminsController::class, 'destroy'])->middleware('auth');
 
 
-Route::get('/users/{id}', [UsersController::class, 'show']);
+Route::get('/admin/edit/{adminId}', [AdminsController::class, 'edit'])->middleware('auth');
+
+Route::put('/admin/edit/{adminId}', [AdminsController::class, 'update'])->middleware('auth');
+
+Route::delete('/delete/user/{userId}', [UsersController::class, 'destroy'])->middleware('auth');
+
+
+Route::get('/users/{id}', [UsersController::class, 'show'])->middleware('auth');
+
+
 
 
 

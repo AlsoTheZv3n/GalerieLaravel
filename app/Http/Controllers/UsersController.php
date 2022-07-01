@@ -18,24 +18,16 @@ class UsersController extends Controller
 
     public function destroy($id){
 
-        @foreach($galerie as $items){
-            $galerie = Galeries::where('user_id', $id)->get();
-            /* return View:make('viewname')->with('products', $products);*/
-        }
-        
-        @foreach($photos as $items){
+        $galeries = Galeries::where('user_id', $id)->get();
+
+        foreach($galeries as $galerie) {
             $photos = Photos::where('galerie_id', $galerie->id)->get();
-            /* return View:make('viewname')->with('products', $products);*/
+            $photos->each->delete();
         }
 
+        $galeries->each->delete();
 
         $user = User::find($id);
-
-        $photos->each( function( $item, $key ) {
-            $item->delete();
-        } );
-        $galerie->each( function( $item, $key ) {
-            $item->delete();
 
         $user->delete();
 
